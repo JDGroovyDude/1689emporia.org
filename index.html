@@ -170,13 +170,13 @@
     .hero-frame::after  { bottom: -1px; right: -1px; border-width: 0 2px 2px 0; }
 
     /* Large shield logo in hero */
-    .hero-logo {
-      width: 130px;
-      height: auto;
-      margin-bottom: 2rem;
-      animation: fadeUp 1s ease both;
-      filter: drop-shadow(0 4px 24px rgba(201,168,76,0.25));
-    }
+   .hero-logo {
+  display: block;        /* avoids inline spacing issues */
+  width: 60%;            /* change to percent, px, or vw as needed */
+  max-width: 800px;      /* cap so it doesn't get huge on wide screens */
+  height: auto;          /* preserves aspect ratio */
+}
+
 
     .hero h1 {
       font-family: 'Cinzel', serif;
@@ -665,7 +665,7 @@
     <div class="hero-bg"></div>
     <div class="hero-frame"></div>
     <div class="hero-content">
-      <img class="hero-logo" src="The Real ERBF Banner.png" alt="Emporia Reformed Baptist Fellowship" />
+      <img class="hero-logo" src="ERBF Banner No Background.png" alt="Emporia Reformed Baptist Fellowship" />
       <h1>Gathered in Grace,<br/><em>Rooted in Truth</em></h1>
       <div class="hero-rule"></div>
       <p>A fellowship of believers in Emporia, Kansas, worshipping and growing together in the Reformed Baptist tradition.</p>
