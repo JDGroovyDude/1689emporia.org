@@ -9,7 +9,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Cinzel:wght@400;500;600&family=Cormorant+Upright:wght@300;400;500&display=swap" />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Cinzel:wght@400;500;600&family=Cormorant+Upright:wght@300;400;500&display=swap" rel="stylesheet" />
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -41,7 +41,7 @@
     body::before {
       content: '';
       position: fixed; inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4'/%3E%3CfeDisplacementMap in='SourceGraphic' scale='15'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' /%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
       pointer-events: none;
       z-index: 9999;
     }
@@ -687,8 +687,8 @@
       <div class="about-grid">
         <div class="about-text">
           <p>Emporia Reformed Baptist Fellowship is a gathering of Christians committed to following and serving Christ according to the historic Reformed Baptist faith, meeting together in Emporia, Kansas.</p>
-          <p>We are not yet constituted as a formal church, but we are prayerfully and purposefully working toward that end &#8212; seeking to build a covenanted congregation that faithfully preaches Christ and his Gospel, nurtures believers in grace, and extends Gospel witness to our community.</p>
-          <p>We hold to the 1689 London Baptist Confession of Faith as a faithful summary of biblical doctrine, and we believe that the sovereignty of God in salvation, the sufficiency of Scripture, and the centrality of Christ define who we are.</p>
+          <p>We are not yet constituted as a formal church, but we are prayerfully and purposefully working toward that end &#8212; seeking to build a covenanted congregation that faithfully preaches and embodies the Gospel.</p>
+          <p>We hold to the 1689 London Baptist Confession of Faith as a faithful summary of biblical doctrine, and we believe that the sovereignty of God in salvation, the sufficiency of Scripture, and the centrality of Christ are essential to our identity.</p>
           <p>All who love the Lord Jesus Christ and desire to grow in grace are warmly welcome among us.</p>
         </div>
         <div class="about-aside">
@@ -718,7 +718,7 @@
             </svg>
           </div>
           <h3>Scripture Alone</h3>
-          <p>We hold the sixty-six books of the Old and New Testaments to be the inspired, inerrant, and wholly sufficient Word of God &#8212; the only infallible rule of faith and practice for the Church of Jesus Christ.</p>
+          <p>We hold the sixty-six books of the Old and New Testaments to be the inspired, inerrant, and wholly sufficient Word of God &#8212; the only infallible rule of faith and practice for the Church.</p>
         </div>
 
         <!-- Doctrines of Grace — descending dove / rays -->
@@ -812,7 +812,7 @@
             </div>
             <div class="detail-text">
               <h4>Lord&#39;s Day Worship</h4>
-              <p><strong>Sunday Evenings</strong> &#8212; We gather each Lord&#39;s Day for corporate worship: the singing of psalms and hymns, the reading and preaching of Scripture, prayer, and the Lord&#39;s Supper.</p>
+              <p><strong>Sunday Evenings</strong> &#8212; We gather each Lord&#39;s Day for corporate worship: the singing of psalms and hymns, the reading and preaching of Scripture, prayer, and the administration of the ordinances.</p>
             </div>
           </div>
 
@@ -865,7 +865,7 @@
       <h2 class="section-title">1689 London Baptist Confession</h2>
       <div class="section-rule"></div>
       <p class="confession-text">
-        &#8220;The Holy Scripture is the only sufficient, certain, and infallible rule of all saving knowledge, faith, and obedience&#8230; the authority of the Holy Scripture, for which it ought to be believed in and obeyed, dependeth not upon the testimony of any man or church; but wholly upon God (who is truth itself) the author thereof: and therefore it is to be received, because it is the Word of God.&#8221;
+        &#8220;The Holy Scripture is the only sufficient, certain, and infallible rule of all saving knowledge, faith, and obedience&#8230; the authority of the Holy Scripture, for which it ought to be believed, dependeth not upon any testimony of any man or church; but wholly upon God (who is truth itself) the author thereof.&#8221;
       </p>
       <span class="confession-cite">1689 London Baptist Confession of Faith &nbsp;&middot;&nbsp; Chapter I</span>
       <br/>
@@ -888,7 +888,7 @@
       <div class="contact-grid">
         <div class="contact-form-wrap">
           <h3>Send a Message</h3>
-          <form onsubmit="handleSubmit(event)">
+          <form action="https://formspree.io/f/mredrldq" method="POST">
             <div class="form-group">
               <label>Your Name</label>
               <input type="text" name="name" placeholder="John Calvin" required />
@@ -928,7 +928,7 @@
             </div>
           </div>
           <div class="notice-box">
-            <p><strong>A Note on Our Status:</strong> We are a fellowship, not yet a formally constituted church. We are prayerfully working toward church planting under proper oversight. If you are interested in learning more, we encourage you to visit and ask questions.</p>
+            <p><strong>A Note on Our Status:</strong> We are a fellowship, not yet a formally constituted church. We are prayerfully working toward church planting under proper oversight. If you are interested in supporting our work or learning more, we would love to hear from you.</p>
           </div>
         </div>
       </div>
@@ -945,12 +945,6 @@
   </footer>
 
   <script>
-    function handleSubmit(e) {
-      e.preventDefault();
-      document.getElementById('form-confirm').style.display = 'block';
-      e.target.reset();
-    }
-
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
