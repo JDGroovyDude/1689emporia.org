@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Emporia Reformed Baptist Fellowship</title>
+  <meta name="description" content="A fellowship of believers in Emporia, Kansas, worshipping and growing together in the Reformed Baptist tradition." />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Cinzel:wght@400;500;600&family=Cormorant+Upright:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -35,7 +37,6 @@
       overflow-x: hidden;
     }
 
-    /* ── NOISE TEXTURE OVERLAY ── */
     body::before {
       content: '';
       position: fixed; inset: 0;
@@ -50,7 +51,7 @@
       color: var(--gold-pale);
       text-align: center;
       font-family: 'Cinzel', serif;
-      font-size: 0.72rem;
+      font-size: 0.68rem;
       letter-spacing: 0.2em;
       padding: 8px 1rem;
       border-bottom: 1px solid var(--rule);
@@ -62,25 +63,47 @@
       background: var(--navy);
       border-bottom: 2px solid var(--gold);
       display: flex; align-items: center; justify-content: space-between;
-      padding: 0 3rem;
-      height: 72px;
+      padding: 0 2.5rem;
+      height: 80px;
     }
 
-    .nav-logo {
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      text-decoration: none;
+    }
+    .nav-brand img {
+      height: 52px;
+      width: auto;
+      display: block;
+    }
+    .nav-brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+    .nav-brand-text .name {
       font-family: 'Cinzel', serif;
-      font-size: 1rem;
+      font-size: 0.92rem;
       font-weight: 600;
       color: var(--gold-lt);
       letter-spacing: 0.08em;
-      text-decoration: none;
-      line-height: 1.2;
     }
-    .nav-logo span { display: block; font-weight: 400; font-size: 0.72rem; color: var(--gold); letter-spacing: 0.22em; margin-top: 2px; }
+    .nav-brand-text .sub {
+      font-family: 'Cinzel', serif;
+      font-size: 0.62rem;
+      font-weight: 400;
+      color: var(--gold);
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      margin-top: 1px;
+    }
 
-    .nav-links { display: flex; gap: 2.4rem; list-style: none; }
+    .nav-links { display: flex; gap: 2.2rem; list-style: none; }
     .nav-links a {
       font-family: 'Cinzel', serif;
-      font-size: 0.72rem;
+      font-size: 0.68rem;
       letter-spacing: 0.18em;
       color: var(--gold-pale);
       text-decoration: none;
@@ -102,23 +125,39 @@
       overflow: hidden;
     }
 
-    /* Radial glow behind text */
-    .hero::after {
-      content: '';
+    /* Banner image as subtle background */
+    .hero-bg {
       position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      width: 700px; height: 700px;
-      background: radial-gradient(ellipse at center, rgba(201,168,76,0.10) 0%, transparent 70%);
+      inset: 0;
+      background-image: url('images/erbf-banner.png');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.12;
       pointer-events: none;
     }
 
-    /* Decorative corner lines */
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(15,28,46,0.6) 0%, rgba(15,28,46,0.85) 100%);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
     .hero-frame {
       position: absolute;
       inset: 2.5rem;
       border: 1px solid rgba(201,168,76,0.18);
       pointer-events: none;
+      z-index: 1;
     }
     .hero-frame::before, .hero-frame::after {
       content: '';
@@ -130,18 +169,18 @@
     .hero-frame::before { top: -1px; left: -1px; border-width: 2px 0 0 2px; }
     .hero-frame::after  { bottom: -1px; right: -1px; border-width: 0 2px 2px 0; }
 
-    .hero-ornament {
-      color: var(--gold);
-      font-size: 1.4rem;
-      letter-spacing: 0.5em;
-      margin-bottom: 1.6rem;
-      opacity: 0.7;
+    /* Large shield logo in hero */
+    .hero-logo {
+      width: 130px;
+      height: auto;
+      margin-bottom: 2rem;
       animation: fadeUp 1s ease both;
+      filter: drop-shadow(0 4px 24px rgba(201,168,76,0.25));
     }
 
     .hero h1 {
       font-family: 'Cinzel', serif;
-      font-size: clamp(2.2rem, 5vw, 4.2rem);
+      font-size: clamp(2rem, 5vw, 4rem);
       font-weight: 500;
       color: var(--cream);
       line-height: 1.15;
@@ -153,19 +192,19 @@
       font-style: italic;
       font-family: 'Cormorant Upright', serif;
       color: var(--gold-lt);
-      font-size: 1.15em;
+      font-size: 1.12em;
       font-weight: 300;
     }
 
     .hero-rule {
-      margin: 2.2rem auto;
+      margin: 2rem auto;
       width: 120px; height: 1px;
       background: linear-gradient(90deg, transparent, var(--gold), transparent);
       animation: fadeUp 1s 0.3s ease both;
     }
 
     .hero p {
-      font-size: clamp(1.05rem, 2vw, 1.3rem);
+      font-size: clamp(1rem, 2vw, 1.25rem);
       color: var(--gold-pale);
       max-width: 560px;
       font-style: italic;
@@ -174,9 +213,9 @@
     }
 
     .hero-verse {
-      margin-top: 2.4rem;
+      margin-top: 2rem;
       font-family: 'EB Garamond', serif;
-      font-size: 0.92rem;
+      font-size: 0.88rem;
       color: var(--gold);
       letter-spacing: 0.12em;
       text-transform: uppercase;
@@ -185,7 +224,7 @@
     }
 
     .hero-cta {
-      margin-top: 3rem;
+      margin-top: 2.8rem;
       display: flex; gap: 1.2rem; flex-wrap: wrap; justify-content: center;
       animation: fadeUp 1s 0.75s ease both;
     }
@@ -194,13 +233,14 @@
       background: var(--gold);
       color: var(--navy);
       font-family: 'Cinzel', serif;
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       text-decoration: none;
-      padding: 14px 36px;
+      padding: 13px 34px;
       border: 2px solid var(--gold);
       transition: background 0.25s, color 0.25s;
+      display: inline-block;
     }
     .btn-primary:hover { background: transparent; color: var(--gold-lt); }
 
@@ -208,13 +248,14 @@
       background: transparent;
       color: var(--gold-pale);
       font-family: 'Cinzel', serif;
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       text-decoration: none;
-      padding: 14px 36px;
+      padding: 13px 34px;
       border: 2px solid rgba(201,168,76,0.45);
       transition: border-color 0.25s, color 0.25s;
+      display: inline-block;
     }
     .btn-outline:hover { border-color: var(--gold); color: var(--gold-lt); }
 
@@ -230,8 +271,8 @@
 
     .section-label {
       font-family: 'Cinzel', serif;
-      font-size: 0.68rem;
-      letter-spacing: 0.3em;
+      font-size: 0.65rem;
+      letter-spacing: 0.32em;
       text-transform: uppercase;
       color: var(--gold);
       text-align: center;
@@ -239,7 +280,7 @@
     }
     .section-title {
       font-family: 'Cinzel', serif;
-      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-size: clamp(1.5rem, 3vw, 2.3rem);
       font-weight: 500;
       text-align: center;
       color: var(--navy);
@@ -262,7 +303,7 @@
       margin-top: 1rem;
     }
     .about-text p { margin-bottom: 1.2rem; color: var(--muted); }
-    .about-text p:first-child { color: var(--ink); font-size: 1.12rem; }
+    .about-text p:first-child { color: var(--ink); font-size: 1.1rem; }
     .about-aside {
       background: var(--navy);
       color: var(--gold-pale);
@@ -289,7 +330,7 @@
     }
     .about-aside cite {
       font-family: 'Cinzel', serif;
-      font-size: 0.68rem;
+      font-size: 0.65rem;
       letter-spacing: 0.18em;
       color: var(--gold);
       font-style: normal;
@@ -298,7 +339,6 @@
     /* ── BELIEFS ── */
     #beliefs { background: var(--navy); }
     #beliefs .section-title { color: var(--cream); }
-    #beliefs .section-label { color: var(--gold); }
 
     .beliefs-grid {
       display: grid;
@@ -311,18 +351,20 @@
       padding: 2.4rem 2rem;
       border-top: 2px solid transparent;
       transition: border-color 0.3s, background 0.3s;
-      cursor: default;
     }
     .belief-card:hover { border-color: var(--gold); background: var(--navy-lt); }
+
+    /* SVG icon in belief cards */
     .belief-icon {
-      font-size: 1.5rem;
-      color: var(--gold);
+      width: 32px; height: 32px;
       margin-bottom: 1rem;
-      opacity: 0.8;
+      opacity: 0.85;
     }
+    .belief-icon svg { width: 100%; height: 100%; }
+
     .belief-card h3 {
       font-family: 'Cinzel', serif;
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       letter-spacing: 0.15em;
       color: var(--gold-lt);
       margin-bottom: 0.8rem;
@@ -338,26 +380,33 @@
       gap: 4rem;
       align-items: center;
     }
-    .gathering-info h3 {
-      font-family: 'Cinzel', serif;
-      font-size: 0.8rem;
-      letter-spacing: 0.2em;
-      color: var(--gold);
-      text-transform: uppercase;
-      margin-bottom: 0.5rem;
-    }
-    .gathering-info p { color: var(--muted); margin-bottom: 1.8rem; }
-    .gathering-info strong { color: var(--ink); }
     .gathering-detail {
-      display: flex; align-items: flex-start; gap: 1rem;
+      display: flex; align-items: flex-start; gap: 1.1rem;
       margin-bottom: 1.6rem;
       padding-bottom: 1.6rem;
       border-bottom: 1px solid rgba(201,168,76,0.2);
     }
     .gathering-detail:last-child { border-bottom: none; margin-bottom: 0; }
-    .detail-icon { font-size: 1.3rem; color: var(--gold); margin-top: 2px; flex-shrink: 0; }
-    .detail-text h4 { font-family: 'Cinzel', serif; font-size: 0.75rem; letter-spacing: 0.15em; color: var(--navy); text-transform: uppercase; margin-bottom: 0.3rem; }
+
+    .detail-icon {
+      width: 26px; height: 26px;
+      flex-shrink: 0;
+      margin-top: 4px;
+      color: var(--gold);
+    }
+    .detail-icon svg { width: 100%; height: 100%; }
+
+    .detail-text h4 {
+      font-family: 'Cinzel', serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      color: var(--navy);
+      text-transform: uppercase;
+      margin-bottom: 0.3rem;
+    }
     .detail-text p { color: var(--muted); font-size: 0.95rem; margin: 0; }
+    .detail-text a { color: var(--navy); }
+    .detail-text a:hover { color: var(--gold); }
 
     .gathering-card {
       background: var(--navy);
@@ -367,7 +416,7 @@
     }
     .gathering-card .g-label {
       font-family: 'Cinzel', serif;
-      font-size: 0.65rem;
+      font-size: 0.62rem;
       letter-spacing: 0.3em;
       color: var(--gold);
       text-transform: uppercase;
@@ -375,7 +424,7 @@
     }
     .gathering-card .g-day {
       font-family: 'Cinzel', serif;
-      font-size: 2.4rem;
+      font-size: 2.3rem;
       font-weight: 500;
       color: var(--cream);
       line-height: 1;
@@ -383,13 +432,13 @@
     }
     .gathering-card .g-time {
       font-family: 'Cormorant Upright', serif;
-      font-size: 1.5rem;
+      font-size: 1.45rem;
       font-style: italic;
       color: var(--gold-lt);
       margin-bottom: 1.5rem;
     }
     .gathering-card hr { border: none; border-top: 1px solid var(--rule); margin: 1.5rem 0; }
-    .gathering-card .g-note { font-size: 0.92rem; color: #8aa0b8; font-style: italic; }
+    .gathering-card .g-note { font-size: 0.9rem; color: #8aa0b8; font-style: italic; }
 
     /* ── CONFESSION ── */
     #confession {
@@ -398,9 +447,10 @@
       padding: 7rem 2rem;
     }
     #confession .section-title { color: var(--cream); }
+
     .confession-text {
       font-family: 'Cormorant Upright', serif;
-      font-size: clamp(1.2rem, 2.5vw, 1.7rem);
+      font-size: clamp(1.2rem, 2.5vw, 1.65rem);
       font-style: italic;
       color: var(--gold-pale);
       max-width: 760px;
@@ -410,13 +460,42 @@
     }
     .confession-cite {
       font-family: 'Cinzel', serif;
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       letter-spacing: 0.22em;
       color: var(--gold);
       text-transform: uppercase;
+      margin-bottom: 2.5rem;
+      display: block;
     }
 
-    /* ── CONTACT / FOOTER ── */
+    /* Read the Confession button */
+    .confession-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: transparent;
+      color: var(--gold-lt);
+      font-family: 'Cinzel', serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 13px 34px;
+      border: 2px solid rgba(201,168,76,0.5);
+      transition: border-color 0.25s, color 0.25s, background 0.25s;
+      margin-top: 0.5rem;
+    }
+    .confession-link:hover {
+      border-color: var(--gold);
+      background: rgba(201,168,76,0.08);
+      color: var(--gold-lt);
+    }
+    .confession-link svg {
+      width: 14px; height: 14px;
+      flex-shrink: 0;
+    }
+
+    /* ── CONTACT ── */
     #contact { background: var(--cream); }
     .contact-grid {
       display: grid;
@@ -426,7 +505,7 @@
     }
     .contact-form-wrap h3 {
       font-family: 'Cinzel', serif;
-      font-size: 1rem;
+      font-size: 0.95rem;
       letter-spacing: 0.12em;
       color: var(--navy);
       margin-bottom: 1.6rem;
@@ -435,7 +514,7 @@
     .form-group label {
       display: block;
       font-family: 'Cinzel', serif;
-      font-size: 0.65rem;
+      font-size: 0.62rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--gold);
@@ -461,7 +540,7 @@
       background: var(--navy);
       color: var(--gold-lt);
       font-family: 'Cinzel', serif;
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       border: 2px solid var(--navy);
@@ -474,7 +553,7 @@
 
     .contact-info h3 {
       font-family: 'Cinzel', serif;
-      font-size: 1rem;
+      font-size: 0.95rem;
       letter-spacing: 0.12em;
       color: var(--navy);
       margin-bottom: 1.6rem;
@@ -483,7 +562,13 @@
       display: flex; gap: 1rem; align-items: flex-start;
       margin-bottom: 1.4rem;
     }
-    .contact-item .ci-icon { font-size: 1.2rem; color: var(--gold); flex-shrink: 0; margin-top: 3px; }
+    .contact-item .ci-icon {
+      width: 22px; height: 22px;
+      flex-shrink: 0;
+      margin-top: 3px;
+      color: var(--gold);
+    }
+    .contact-item .ci-icon svg { width: 100%; height: 100%; }
     .contact-item p { color: var(--muted); font-size: 0.95rem; margin: 0; }
     .contact-item a { color: var(--navy); text-decoration: none; }
     .contact-item a:hover { color: var(--gold); }
@@ -502,52 +587,69 @@
     footer {
       background: var(--navy);
       border-top: 2px solid var(--gold);
-      padding: 3rem 2rem;
+      padding: 3.5rem 2rem;
       text-align: center;
     }
-    .footer-logo {
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.2rem;
+      margin-bottom: 1.4rem;
+    }
+    .footer-brand img {
+      height: 54px;
+      width: auto;
+    }
+    .footer-brand-text .footer-logo {
       font-family: 'Cinzel', serif;
-      font-size: 1.1rem;
+      font-size: 1rem;
       font-weight: 500;
       color: var(--gold-lt);
       letter-spacing: 0.1em;
-      margin-bottom: 0.5rem;
+      text-align: left;
     }
-    .footer-sub {
+    .footer-brand-text .footer-sub {
       font-family: 'Cinzel', serif;
-      font-size: 0.65rem;
+      font-size: 0.6rem;
       letter-spacing: 0.3em;
       color: var(--gold);
       opacity: 0.6;
-      margin-bottom: 1.5rem;
+      text-align: left;
+      text-transform: uppercase;
+      margin-top: 3px;
     }
-    .footer-rule { width: 60px; height: 1px; background: var(--rule); margin: 0 auto 1.5rem; }
+    .footer-rule { width: 60px; height: 1px; background: var(--rule); margin: 0 auto 1.4rem; }
     footer p { font-size: 0.82rem; color: #4a5a70; font-style: italic; }
 
     /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .beliefs-grid { grid-template-columns: 1fr 1fr; }
+    }
     @media (max-width: 768px) {
-      nav { padding: 0 1.5rem; }
+      nav { padding: 0 1.2rem; }
       .nav-links { display: none; }
       .about-grid,
       .gathering-wrap,
       .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
       .beliefs-grid { grid-template-columns: 1fr; }
-    }
-    @media (max-width: 900px) {
-      .beliefs-grid { grid-template-columns: 1fr 1fr; }
+      .nav-brand-text .name { font-size: 0.78rem; }
     }
   </style>
 </head>
 <body>
 
   <!-- Topbar -->
-  <div class="topbar">Emporia, Kansas &nbsp;·&nbsp; Sola Scriptura &nbsp;·&nbsp; Sola Gratia &nbsp;·&nbsp; Sola Fide &nbsp;·&nbsp; Solus Christus &nbsp;·&nbsp; Soli Deo Gloria</div>
+  <div class="topbar">Emporia, Kansas &nbsp;·&nbsp; Sola Scriptura &nbsp;&middot;&nbsp; Sola Gratia &nbsp;&middot;&nbsp; Sola Fide &nbsp;&middot;&nbsp; Solus Christus &nbsp;&middot;&nbsp; Soli Deo Gloria</div>
 
   <!-- Nav -->
   <nav>
-    <a href="#" class="nav-logo">
-      Emporia Reformed Baptist
-      <span>Fellowship</span>
+    <a href="#" class="nav-brand">
+      <img src="images/erbf-logo.png" alt="Emporia Reformed Baptist Fellowship Shield" />
+      <div class="nav-brand-text">
+        <span class="name">Emporia Reformed Baptist</span>
+        <span class="sub">Fellowship</span>
+      </div>
     </a>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
@@ -560,18 +662,18 @@
 
   <!-- Hero -->
   <section class="hero">
+    <div class="hero-bg"></div>
     <div class="hero-frame"></div>
-    <div class="hero-ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
-    <h1>
-      Gathered in Grace,<br/>
-      <em>Rooted in Truth</em>
-    </h1>
-    <div class="hero-rule"></div>
-    <p>A fellowship of believers in Emporia, Kansas, worshipping Christ and growing together in Christ in the Reformed Baptist tradition.</p>
-    <div class="hero-verse">Hebrews 12:2 &nbsp;·&nbsp; "Looking unto Jesus the author and finisher of our faith."</div>
-    <div class="hero-cta">
-      <a href="#gathering" class="btn-primary">Join Us</a>
-      <a href="#about" class="btn-outline">Learn More</a>
+    <div class="hero-content">
+      <img class="hero-logo" src="images/erbf-logo.png" alt="Emporia Reformed Baptist Fellowship" />
+      <h1>Gathered in Grace,<br/><em>Rooted in Truth</em></h1>
+      <div class="hero-rule"></div>
+      <p>A fellowship of believers in Emporia, Kansas, worshipping and growing together in the Reformed Baptist tradition.</p>
+      <div class="hero-verse">Hebrews 12:2 &nbsp;&middot;&nbsp; &#8220;Looking unto Jesus the author and finisher of our faith.&#8221;</div>
+      <div class="hero-cta">
+        <a href="#gathering" class="btn-primary">Join Us</a>
+        <a href="#about" class="btn-outline">Learn More</a>
+      </div>
     </div>
   </section>
 
@@ -583,14 +685,14 @@
       <div class="section-rule"></div>
       <div class="about-grid">
         <div class="about-text">
-          <p>Emporia Reformed Baptist Fellowship is a gathering of Christians committed following and servinf Christ according to the historic Reformed Baptist faith, meeting together in Emporia, Kansas to worship, study Scripture, pray, and encourage one another in the faith.</p>
-          <p>We are not yet constituted as a formal church, but we are prayerfully and purposefully working toward that end — seeking to build a covenanted congregation that faithfully preaches the Word, administers the ordinances, and exercises godly discipline.</p>
+          <p>Emporia Reformed Baptist Fellowship is a gathering of Christians committed to following and serving Christ according to the historic Reformed Baptist faith, meeting together in Emporia, Kansas to worship, study Scripture, pray, and encourage one another in the faith.</p>
+          <p>We are not yet constituted as a formal church, but we are prayerfully and purposefully working toward that end &#8212; seeking to build a covenanted congregation that faithfully preaches the Word, administers the ordinances, and exercises godly discipline.</p>
           <p>We hold to the 1689 London Baptist Confession of Faith as a faithful summary of biblical doctrine, and we believe that the sovereignty of God in salvation, the sufficiency of Scripture, and the glory of Christ in all things are non-negotiable pillars of the Christian life.</p>
           <p>All who love the Lord Jesus Christ and desire to grow in grace are warmly welcome among us.</p>
         </div>
         <div class="about-aside">
-          <blockquote>"For where two or three are gathered in my name, there am I among them."</blockquote>
-          <cite>Matthew 18:20 &nbsp;·&nbsp; ESV</cite>
+          <blockquote>&#8220;For where two or three are gathered in my name, there am I among them.&#8221;</blockquote>
+          <cite>Matthew 18:20 &nbsp;&middot;&nbsp; ESV</cite>
         </div>
       </div>
     </div>
@@ -603,36 +705,89 @@
       <h2 class="section-title" style="color:var(--cream)">The Pillars of Our Faith</h2>
       <div class="section-rule"></div>
       <div class="beliefs-grid">
+
+        <!-- Scripture Alone — open book -->
         <div class="belief-card">
-          <div class="belief-icon">✦</div>
+          <div class="belief-icon">
+            <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 6C4 6 9 4 16 4C23 4 28 6 28 6V26C28 26 23 24 16 24C9 24 4 26 4 26V6Z" stroke="#c9a84c" stroke-width="1.6" stroke-linejoin="round"/>
+              <path d="M16 4V24" stroke="#c9a84c" stroke-width="1.6"/>
+              <path d="M8 10H13M8 14H13M8 18H13" stroke="#c9a84c" stroke-width="1.2" stroke-linecap="round"/>
+              <path d="M19 10H24M19 14H24M19 18H24" stroke="#c9a84c" stroke-width="1.2" stroke-linecap="round"/>
+            </svg>
+          </div>
           <h3>Scripture Alone</h3>
-          <p>We hold the sixty-six books of the Old and New Testaments to be the inspired, inerrant, and wholly sufficient Word of God — the only infallible rule of faith and practice for the Christian life.</p>
+          <p>We hold the sixty-six books of the Old and New Testaments to be the inspired, inerrant, and wholly sufficient Word of God &#8212; the only infallible rule of faith and practice for the Christian life.</p>
         </div>
+
+        <!-- Doctrines of Grace — descending dove / rays -->
         <div class="belief-card">
-          <div class="belief-icon">✦</div>
+          <div class="belief-icon">
+            <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="16" cy="8" r="3" stroke="#c9a84c" stroke-width="1.6"/>
+              <path d="M16 11V18" stroke="#c9a84c" stroke-width="1.6" stroke-linecap="round"/>
+              <path d="M12 15L8 20M16 18L16 26M20 15L24 20" stroke="#c9a84c" stroke-width="1.4" stroke-linecap="round"/>
+              <path d="M10 26H22" stroke="#c9a84c" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+          </div>
           <h3>The Doctrines of Grace</h3>
           <p>We joyfully confess the sovereign grace of God in salvation: Total Depravity, Unconditional Election, Definite Atonement, Irresistible Grace, and the Perseverance of the Saints.</p>
         </div>
+
+        <!-- Believers&#39; Baptism — water waves -->
         <div class="belief-card">
-          <div class="belief-icon">✦</div>
-          <h3>Believers' Baptism</h3>
+          <div class="belief-icon">
+            <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16 4C16 4 10 10 10 16C10 19.314 12.686 22 16 22C19.314 22 22 19.314 22 16C22 10 16 4 16 4Z" stroke="#c9a84c" stroke-width="1.6" stroke-linejoin="round"/>
+              <path d="M6 26C8 24 10 25 12 26C14 27 16 26 18 26C20 26 22 27 24 26C26 25 28 24 30 26" stroke="#c9a84c" stroke-width="1.4" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>Believers&#39; Baptism</h3>
           <p>We practice the baptism of professing believers by immersion, as a public declaration of union with Christ in his death and resurrection, consistent with our Baptist convictions.</p>
         </div>
+
+        <!-- Christ Alone — cross -->
         <div class="belief-card">
-          <div class="belief-icon">✦</div>
+          <div class="belief-icon">
+            <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M16 4V28" stroke="#c9a84c" stroke-width="2" stroke-linecap="round"/>
+              <path d="M8 12H24" stroke="#c9a84c" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
           <h3>Christ Alone</h3>
-          <p>We proclaim that sinners are justified before a holy God solely through faith in the person and finished work of Jesus Christ — his perfect life, atoning death, and victorious resurrection.</p>
+          <p>We proclaim that sinners are justified before a holy God solely through faith in the person and finished work of Jesus Christ &#8212; his perfect life, atoning death, and victorious resurrection.</p>
         </div>
+
+        <!-- Lord&#39;s Supper — cup and bread -->
         <div class="belief-card">
-          <div class="belief-icon">✦</div>
-          <h3>The Lord's Supper</h3>
-          <p>We observe the Lord's Supper as a memorial ordinance, proclaiming the Lord's death until he comes, shared by those who have professed faith and been baptized as believers.</p>
+          <div class="belief-icon">
+            <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M11 8H21L19 18H13L11 8Z" stroke="#c9a84c" stroke-width="1.6" stroke-linejoin="round"/>
+              <path d="M14 18V24" stroke="#c9a84c" stroke-width="1.6" stroke-linecap="round"/>
+              <path d="M18 18V24" stroke="#c9a84c" stroke-width="1.6" stroke-linecap="round"/>
+              <path d="M11 24H21" stroke="#c9a84c" stroke-width="1.6" stroke-linecap="round"/>
+              <path d="M8 6C8 6 12 5 16 5C20 5 24 6 24 6" stroke="#c9a84c" stroke-width="1.4" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>The Lord&#39;s Supper</h3>
+          <p>We observe the Lord&#39;s Supper as a memorial ordinance, proclaiming the Lord&#39;s death until he comes, shared by those who have professed faith and been baptized as believers.</p>
         </div>
+
+        <!-- 1689 Confession — scroll -->
         <div class="belief-card">
-          <div class="belief-icon">✦</div>
+          <div class="belief-icon">
+            <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="7" y="6" width="18" height="22" rx="2" stroke="#c9a84c" stroke-width="1.6"/>
+              <path d="M11 11H21M11 15H21M11 19H17" stroke="#c9a84c" stroke-width="1.2" stroke-linecap="round"/>
+              <circle cx="24" cy="7" r="2.5" stroke="#c9a84c" stroke-width="1.2"/>
+              <circle cx="24" cy="27" r="2.5" stroke="#c9a84c" stroke-width="1.2"/>
+              <path d="M24 9.5V24.5" stroke="#c9a84c" stroke-width="1.2"/>
+            </svg>
+          </div>
           <h3>The 1689 Confession</h3>
           <p>We affirm the Second London Baptist Confession of Faith (1689) as a subordinate standard that faithfully summarises the teaching of Scripture and stands in the stream of historic Reformed theology.</p>
         </div>
+
       </div>
     </div>
   </section>
@@ -645,48 +800,81 @@
       <div class="section-rule"></div>
       <div class="gathering-wrap">
         <div class="gathering-info">
+
+          <!-- Lord's Day -->
           <div class="gathering-detail">
-            <div class="detail-icon">🕊</div>
+            <div class="detail-icon">
+              <svg viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="13" cy="13" r="5" stroke="#c9a84c" stroke-width="1.5"/>
+                <path d="M13 2V5M13 21V24M2 13H5M21 13H24M4.22 4.22L6.34 6.34M19.66 19.66L21.78 21.78M21.78 4.22L19.66 6.34M6.34 19.66L4.22 21.78" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
             <div class="detail-text">
-              <h4>Lord's Day Worship</h4>
-              <p><strong>Sunday Evenings</strong> — We gather each Lord's Day for corporate worship: the singing of psalms and hymns, the reading and preaching of Scripture, prayer, and the fellowship of the saints.</p>
+              <h4>Lord&#39;s Day Worship</h4>
+              <p><strong>Sunday Evenings</strong> &#8212; We gather each Lord&#39;s Day for corporate worship: the singing of psalms and hymns, the reading and preaching of Scripture, prayer, and the fellowship of the saints.</p>
             </div>
           </div>
+
+          <!-- Location -->
           <div class="gathering-detail">
-            <div class="detail-icon">📍</div>
+            <div class="detail-icon">
+              <svg viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M13 2C9.134 2 6 5.134 6 9C6 14.5 13 24 13 24C13 24 20 14.5 20 9C20 5.134 16.866 2 13 2Z" stroke="#c9a84c" stroke-width="1.5" stroke-linejoin="round"/>
+                <circle cx="13" cy="9" r="2.5" stroke="#c9a84c" stroke-width="1.4"/>
+              </svg>
+            </div>
             <div class="detail-text">
               <h4>Location</h4>
-              <p>Emporia, Kansas. Please <a href="#contact" style="color:var(--navy);">contact us</a> for our current meeting location. We would love to have you join us.</p>
+              <p>Emporia, Kansas. Please <a href="#contact">contact us</a> for our current meeting location. We would love to have you join us.</p>
             </div>
           </div>
+
+          <!-- New Visitors -->
           <div class="gathering-detail">
-            <div class="detail-icon">👋</div>
+            <div class="detail-icon">
+              <svg viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="10" cy="8" r="3" stroke="#c9a84c" stroke-width="1.5"/>
+                <path d="M4 22C4 18.134 6.686 15 10 15" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M17 14L22 19M22 14L17 19" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
             <div class="detail-text">
               <h4>New to Us?</h4>
-              <p>You are warmly welcome.</p>
+              <p>You are warmly welcome. Dress is relaxed, questions are encouraged, and the fellowship is warm. Come as you are.</p>
             </div>
           </div>
+
         </div>
+
         <div class="gathering-card">
-          <div class="g-label">Assembly</div>
+          <div class="g-label">Lord&#39;s Day Assembly</div>
           <div class="g-day">Sunday</div>
           <div class="g-time">6:00 in the Evening</div>
+          <hr/>
           <div class="g-note">Emporia, Kansas<br/>Contact us for address</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Confession Banner -->
+  <!-- Confession -->
   <section id="confession">
     <div class="section-inner">
       <div class="section-label">Our Doctrinal Standard</div>
       <h2 class="section-title">1689 London Baptist Confession</h2>
       <div class="section-rule"></div>
       <p class="confession-text">
-        "The Holy Scripture is the only sufficient, certain, and infallible rule of all saving knowledge, faith, and obedience... the authority of the Holy Scripture, for which it ought to be believed, dependeth not upon the testimony of any man or church, but wholly upon God its author."
+        &#8220;The Holy Scripture is the only sufficient, certain, and infallible rule of all saving knowledge, faith, and obedience&#8230; the authority of the Holy Scripture, for which it ought to be believed, dependeth not upon the testimony of any man or church, but wholly upon God its author.&#8221;
       </p>
-      <div class="confession-cite">1689 London Baptist Confession of Faith &nbsp;·&nbsp; Chapter I</div>
+      <span class="confession-cite">1689 London Baptist Confession of Faith &nbsp;&middot;&nbsp; Chapter I</span>
+      <br/>
+      <a href="https://www.the1689confession.com/" target="_blank" rel="noopener noreferrer" class="confession-link">
+        Read the Full Confession
+        <!-- External link arrow icon -->
+        <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2 7H12M8 3L12 7L8 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
     </div>
   </section>
 
@@ -710,7 +898,7 @@
             </div>
             <div class="form-group">
               <label>Message</label>
-              <textarea name="message" placeholder="Ask us anything — about the fellowship, our beliefs, or how to find us." required></textarea>
+              <textarea name="message" placeholder="Ask us anything &#8212; about the fellowship, our beliefs, or how to find us." required></textarea>
             </div>
             <button type="submit" class="form-submit">Send Message</button>
           </form>
@@ -720,11 +908,21 @@
           <div class="contact-info">
             <h3>Contact Information</h3>
             <div class="contact-item">
-              <div class="ci-icon">📍</div>
+              <div class="ci-icon">
+                <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M11 1C7.134 1 4 4.134 4 8C4 13.5 11 21 11 21C11 21 18 13.5 18 8C18 4.134 14.866 1 11 1Z" stroke="#c9a84c" stroke-width="1.5" stroke-linejoin="round"/>
+                  <circle cx="11" cy="8" r="2.2" stroke="#c9a84c" stroke-width="1.4"/>
+                </svg>
+              </div>
               <p>Emporia, Kansas<br/>Contact us for our current meeting address.</p>
             </div>
             <div class="contact-item">
-              <div class="ci-icon">✉️</div>
+              <div class="ci-icon">
+                <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="2" y="5" width="18" height="13" rx="2" stroke="#c9a84c" stroke-width="1.5"/>
+                  <path d="M2 7L11 13L20 7" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+              </div>
               <p><a href="mailto:admin@1689emporia.org">admin@1689emporia.org</a></p>
             </div>
           </div>
@@ -738,10 +936,15 @@
 
   <!-- Footer -->
   <footer>
-    <div class="footer-logo">Emporia Reformed Baptist Fellowship</div>
-    <div class="footer-sub">Emporia, Kansas &nbsp;·&nbsp; Est. for the glory of God</div>
+    <div class="footer-brand">
+      <img src="images/erbf-logo.png" alt="ERBF Shield" />
+      <div class="footer-brand-text">
+        <div class="footer-logo">Emporia Reformed Baptist Fellowship</div>
+        <div class="footer-sub">Emporia, Kansas &nbsp;&middot;&nbsp; Est. for the glory of God</div>
+      </div>
+    </div>
     <div class="footer-rule"></div>
-    <p>Soli Deo Gloria &nbsp;·&nbsp; To God alone be the glory</p>
+    <p>Soli Deo Gloria &nbsp;&middot;&nbsp; To God alone be the glory</p>
   </footer>
 
   <script>
@@ -751,7 +954,6 @@
       e.target.reset();
     }
 
-    // Subtle scroll reveal
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -771,3 +973,4 @@
   </script>
 </body>
 </html>
+    
